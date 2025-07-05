@@ -1,0 +1,138 @@
+/* ============== RESET BÁSICO E CONFIGURAÇÕES GLOBAIS ============== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+
+    /* NOVO: Gradiente radial com as cores do logo */
+    background: radial-gradient(ellipse at center, #f4f8ff 0%, #d4e4ff 100%);
+    background-attachment: fixed;
+
+    /* NOVO: Configuração Flexbox para centralização vertical */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============== CABEÇALHO COM GRADIENTE E NAVEGAÇÃO CENTRALIZADA ============== */
+header {
+    /* NOVO: Gradiente linear com as cores exatas do logo */
+    background: linear-gradient(to right, #0D2B4E, #1A5F9E);
+    padding: 1rem 0;
+    width: 100%;
+    flex-shrink: 0; /* Impede que o header encolha */
+}
+
+header .container {
+    display: flex;
+    /* NOVO: Centraliza a navegação */
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px; /* Margem horizontal para espaçamento */
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/* Estilos para o link/botão do WhatsApp */
+.whatsapp-link {
+    display: inline-block; /* Permite definir padding e outras propriedades de bloco */
+    margin-top: 1rem;
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: #FFFFFF !important; /* !important para garantir que a cor do texto seja branca */
+    padding: 10px 20px;
+    border-radius: 25px; /* Deixa o botão bem arredondado */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.whatsapp-link:hover {
+    background-color: #128C7E; /* Cor mais escura para o hover */
+    transform: translateY(-2px); /* Efeito de 'levantar' o botão */
+}
+
+/* ============== LAYOUT DO CONTEÚDO PRINCIPAL CENTRALIZADO ============== */
+main {
+    /* NOVO: Esta configuração ajuda na centralização vertical */
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+#display-area {
+    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem; /* Um pouco mais de padding */
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 2.5rem; /* Um pouco mais de espaço */
+    width: 100%; /* Garante que ocupa o espaço do .container */
+    max-width: 1100px; /* Define uma largura máxima para o bloco principal */
+}
+
+#logo-display-container {
+    flex: 0 0 40%;
+    text-align: center;
+}
+
+#logo-display-container img {
+    max-width: 90%;
+    height: auto;
+}
+
+#text-display-container {
+    flex: 1;
+}
+
+#text-display-container h2 {
+    margin-bottom: 1rem;
+    /* NOVO: Usa a cor escura do logo para harmonia */
+    color: #0D2B4E;
+}
+
+/* ============== RODAPÉ ============== */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    /* NOVO: Usa a cor escura do logo para harmonia */
+    color: #0D2B4E;
+    font-size: 0.9em;
+    font-weight: bold;
+    flex-shrink: 0; /* Impede que o footer encolha */
+}
