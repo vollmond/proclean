@@ -1,4 +1,4 @@
-/* ============== RESET BÁSICO E CONFIGURAÇÕES GLOBAIS ============== */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -10,11 +10,11 @@ body {
     line-height: 1.6;
     color: #333;
 
-    /* NOVO: Gradiente radial com as cores do logo */
+   
     background: radial-gradient(ellipse at center, #f4f8ff 0%, #d4e4ff 100%);
     background-attachment: fixed;
 
-    /* NOVO: Configuração Flexbox para centralização vertical */
+    
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ body {
     padding: 0 20px;
 }
 
-/* ============== CABEÇALHO COM GRADIENTE E NAVEGAÇÃO CENTRALIZADA ============== */
+
 header {
     /* NOVO: Gradiente linear com as cores exatas do logo */
     background: linear-gradient(to right, #0D2B4E, #1A5F9E);
@@ -63,7 +63,7 @@ nav a:hover {
     opacity: 0.8;
 }
 
-/* Estilos para o link/botão do WhatsApp */
+
 .whatsapp-link {
     display: inline-block; /* Permite definir padding e outras propriedades de bloco */
     margin-top: 1rem;
@@ -82,7 +82,7 @@ nav a:hover {
     transform: translateY(-2px); /* Efeito de 'levantar' o botão */
 }
 
-/* ============== LAYOUT DO CONTEÚDO PRINCIPAL CENTRALIZADO ============== */
+
 main {
     /* NOVO: Esta configuração ajuda na centralização vertical */
     flex-grow: 1;
@@ -126,7 +126,7 @@ main {
     color: #0D2B4E;
 }
 
-/* ============== RODAPÉ ============== */
+
 footer {
     text-align: center;
     padding: 2rem 0;
