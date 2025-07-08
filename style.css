@@ -199,3 +199,97 @@ footer {
         justify-content: space-between; /* Afasta o hamburger do que estiver à direita */
     }
 }
+
+/* ================================================================ */
+/* === ESTILOS PARA MENU RESPONSIVO (MOBILE-FIRST) - SUBSTITUIR === */
+/* ================================================================ */
+
+/* --- 1. Estilos Base (Aplicados a Mobile primeiro) --- */
+
+.hamburger-menu {
+    display: block; /* O ícone é visível por defeito (em mobile) */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Esconde a navegação e prepara-a para deslizar */
+#main-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    max-width: 300px; /* Largura máxima para o menu */
+    height: 100vh;
+    background-color: #0D2B4E;
+    padding-top: 80px;
+    transform: translateX(-100%); /* Começa fora do ecrã */
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Garante que fica por baixo do botão mas por cima do resto */
+}
+
+/* A classe que o JavaScript vai adicionar para mostrar o menu */
+#main-nav.is-active {
+    transform: translateX(0); /* Move o menu para dentro do ecrã */
+}
+
+/* Ajusta a lista de links para ficar vertical em mobile */
+#main-nav ul {
+    display: flex; /* Usamos flex para alinhar os itens */
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-nav li {
+    margin: 20px 0;
+}
+
+/* Ajusta o header para ter o ícone à esquerda e o logo (se houvesse) ao centro/direita */
+header .container {
+    justify-content: space-between;
+}
+
+/* --- 2. Estilos para Ecrãs Maiores (Desktop View) --- */
+
+@media (min-width: 768px) {
+    
+    /* ESCONDE o ícone hamburger no desktop */
+    .hamburger-menu {
+        display: none;
+    }
+
+    /* AQUI "desfazemos" os estilos de mobile e voltamos ao normal */
+    #main-nav {
+        position: static; /* Volta à posição normal no fluxo da página */
+        transform: none; /* Remove o deslize */
+        width: auto; /* Largura automática */
+        height: auto; /* Altura automática */
+        background-color: transparent; /* Fundo transparente */
+        padding-top: 0; /* Remove o padding do topo */
+    }
+
+    /* Garante que os links ficam na horizontal novamente */
+    #main-nav ul {
+        flex-direction: row;
+    }
+
+    #main-nav li {
+        margin: 0 0 0 20px; /* Apenas margem à esquerda */
+    }
+
+    /* Centraliza a navegação no desktop */
+    header .container {
+        justify-content: center;
+    }
+}
