@@ -14,6 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("<h2> Título encontrado:", titleElement);
   console.log("<p> Parágrafo encontrado:", textElement);
 
+     // --- LÓGICA PARA O MENU HAMBURGER ---
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('main-nav');
+
+    // Verifica se os elementos existem antes de adicionar o "ouvinte"
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            // Adiciona ou remove a classe 'is-active' sempre que o ícone é clicado
+            navMenu.classList.toggle('is-active');
+        });
+    }
+
   // Verificação de segurança
   if (!titleElement || !textElement) {
     console.error("❌ ERRO: Não foi possível encontrar o contentor do título ou do texto. Verifique os IDs no HTML ('#text-display-container').");
