@@ -139,18 +139,25 @@ footer {
 
 
 /* ================================================================ */
-/* === ESTILOS PARA MENU RESPONSIVO (MOBILE-FIRST) - SUBSTITUIR === */
+/* === ESTILOS PARA MENU HAMBURGER UNIVERSAL (TODOS OS ECRÃS) === */
 /* ================================================================ */
 
-/* --- 1. Estilos Base (Aplicados a Mobile primeiro) --- */
+/* --- 1. Ajuste no Container do Header --- */
+header .container {
+    display: flex;
+    justify-content: flex-end; /* Alinha o ícone hamburger à direita */
+    align-items: center;
+    height: 60px; /* Altura fixa para o header */
+}
 
+/* --- 2. Estilos para o Ícone Hamburger (Sempre Visível) --- */
 .hamburger-menu {
-    display: block; /* O ícone é visível por defeito (em mobile) */
+    display: block; /* Garante que o ícone está sempre visível */
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
-    z-index: 1000;
+    z-index: 1000; /* Fica por cima do menu que vai deslizar */
 }
 
 .hamburger-menu .bar {
@@ -162,78 +169,51 @@ footer {
     transition: 0.4s;
 }
 
-/* Esconde a navegação e prepara-a para deslizar */
+/* --- 3. Estilos para a Navegação (Sempre Escondida por Defeito) --- */
 #main-nav {
-    position: absolute;
+    position: fixed; /* Fixo na janela para deslizar por cima de tudo */
     top: 0;
     left: 0;
-    width: 70%;
-    max-width: 300px; /* Largura máxima para o menu */
+    width: 70%; 
+    max-width: 300px;
     height: 100vh;
     background-color: #0D2B4E;
-    padding-top: 80px;
+    padding-top: 60px; /* Espaço para não ficar atrás do header */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5); /* Sombra para dar profundidade */
+    
     transform: translateX(-100%); /* Começa fora do ecrã */
     transition: transform 0.3s ease-in-out;
-    z-index: 999; /* Garante que fica por baixo do botão mas por cima do resto */
+    z-index: 999;
 }
 
-/* A classe que o JavaScript vai adicionar para mostrar o menu */
+/* A classe que o JavaScript adiciona para mostrar o menu */
 #main-nav.is-active {
     transform: translateX(0); /* Move o menu para dentro do ecrã */
 }
 
-/* Ajusta a lista de links para ficar vertical em mobile */
+/* Estilos para a lista de links vertical */
 #main-nav ul {
-    display: flex; /* Usamos flex para alinhar os itens */
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Alinha os links à esquerda dentro do menu */
+    padding: 20px;
 }
 
 #main-nav li {
-    margin: 20px 0;
+    margin: 15px 0;
+    width: 100%;
 }
 
-/* Ajusta o header para ter o ícone à esquerda e o logo (se houvesse) ao centro/direita */
-header .container {
-    justify-content: space-between;
+#main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    display: block; /* Faz o link ocupar toda a largura do <li> */
+    border-radius: 5px;
+    transition: background-color 0.2s;
 }
 
-/* --- 2. Estilos para Ecrãs Maiores (Desktop View) --- */
-
-/* --- 2. Estilos para Ecrãs Maiores (Desktop View) --- */
-
-@media (min-width: 768px) {
-    
-    /* ESCONDE o ícone hamburger no desktop */
-    .hamburger-menu {
-        display: none;
-    }
-
-    /* "Desfaz" os estilos de mobile e volta ao normal para a navegação */
-    #main-nav {
-        position: static;
-        transform: none;
-        width: auto;
-        height: auto;
-        background-color: transparent;
-        padding-top: 0;
-    }
-
-    /* A REGRA MAIS IMPORTANTE PARA CORRIGIR O SEU PROBLEMA */
-    #main-nav ul {
-        display: flex;          /* Garante que a lista é um contentor flex */
-        flex-direction: row;    /* Força os itens a ficarem na horizontal */
-        align-items: center;    /* Alinha os itens verticalmente no centro */
-    }
-
-    /* Reseta a margem dos links para o layout horizontal */
-    #main-nav li {
-        margin: 0 0 0 20px; /* Apenas margem à esquerda de cada item */
-    }
-
-    /* Centraliza a navegação no container do header */
-    header .container {
-        justify-content: center;
-    }
-}
+#main-nav a:hover {
+    background-color: #1A5F9E;
 }
