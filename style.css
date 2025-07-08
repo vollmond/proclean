@@ -200,6 +200,8 @@ header .container {
 
 /* --- 2. Estilos para Ecrãs Maiores (Desktop View) --- */
 
+/* --- 2. Estilos para Ecrãs Maiores (Desktop View) --- */
+
 @media (min-width: 768px) {
     
     /* ESCONDE o ícone hamburger no desktop */
@@ -207,27 +209,31 @@ header .container {
         display: none;
     }
 
-    /* AQUI "desfazemos" os estilos de mobile e voltamos ao normal */
+    /* "Desfaz" os estilos de mobile e volta ao normal para a navegação */
     #main-nav {
-        position: static; /* Volta à posição normal no fluxo da página */
-        transform: none; /* Remove o deslize */
-        width: auto; /* Largura automática */
-        height: auto; /* Altura automática */
-        background-color: transparent; /* Fundo transparente */
-        padding-top: 0; /* Remove o padding do topo */
+        position: static;
+        transform: none;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        padding-top: 0;
     }
 
-    /* Garante que os links ficam na horizontal novamente */
+    /* A REGRA MAIS IMPORTANTE PARA CORRIGIR O SEU PROBLEMA */
     #main-nav ul {
-        flex-direction: row;
+        display: flex;          /* Garante que a lista é um contentor flex */
+        flex-direction: row;    /* Força os itens a ficarem na horizontal */
+        align-items: center;    /* Alinha os itens verticalmente no centro */
     }
 
+    /* Reseta a margem dos links para o layout horizontal */
     #main-nav li {
-        margin: 0 0 0 20px; /* Apenas margem à esquerda */
+        margin: 0 0 0 20px; /* Apenas margem à esquerda de cada item */
     }
 
-    /* Centraliza a navegação no desktop */
+    /* Centraliza a navegação no container do header */
     header .container {
         justify-content: center;
     }
+}
 }
