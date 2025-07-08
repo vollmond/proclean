@@ -35,27 +35,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return; 
     }
     
-    triggerLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            console.log("🖱️ Link de conteúdo clicado!", link.textContent);
+   triggerLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
 
-            const newTitle = link.dataset.title;
-            const newText = link.dataset.text;
-            console.log("🔄 A atualizar o texto para:", newTitle);
-            
-            // Atualiza o conteúdo na página
-            titleElement.textContent = newTitle;
-            textElement.textContent = newText;
-            
-            // Bónus: Fecha o menu hamburger após clicar num link (importante para mobile)
-            if (navMenu.classList.contains('is-active')) {
-                console.log("👇 A fechar o menu hamburger.");
-                navMenu.classList.remove('is-active');
-            }
-        });
+        const newTitle = link.dataset.title;
+        const newText = link.dataset.text;
+
+        // Atualiza o conteúdo na página
+        titleElement.textContent = newTitle; // O título é só texto, isto está correto.
+        textElement.innerHTML = newText;    // <<< A CORREÇÃO ESTÁ AQUI
+
+        // Bónus: Fecha o menu hamburger após clicar num link (importante para mobile)
+        if (navMenu.classList.contains('is-active')) {
+            navMenu.classList.remove('is-active');
+        }
     });
-
+});
     // --- Lógica do Rodapé ---
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
