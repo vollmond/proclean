@@ -136,3 +136,66 @@ footer {
     font-weight: bold;
     flex-shrink: 0; /* Impede que o footer encolha */
 }
+/* ============== ESTILOS PARA O MENU HAMBURGER ============== */
+
+/* O botão do hamburger */
+.hamburger-menu {
+    display: none; /* Escondido por defeito em ecrãs grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000; /* Garante que fica por cima de outros elementos */
+}
+
+/* As três barras do ícone */
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff; /* Cor das barras (branca para o header escuro) */
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* A navegação em modo mobile (escondida por defeito) */
+@media (max-width: 767px) {
+    /* Mostra o ícone hamburger em ecrãs pequenos */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Esconde a navegação e prepara-a para deslizar */
+    #main-nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%; /* Ocupa 70% da largura do ecrã */
+        height: 100vh; /* Ocupa 100% da altura do ecrã */
+        background-color: #0D2B4E; /* Cor de fundo escura */
+        padding-top: 80px; /* Espaço para não ficar atrás do header */
+        
+        transform: translateX(-100%); /* Começa fora do ecrã, à esquerda */
+        transition: transform 0.3s ease-in-out; /* Animação de deslize */
+    }
+
+    /* A classe que o JavaScript vai adicionar para mostrar o menu */
+    #main-nav.is-active {
+        transform: translateX(0); /* Move o menu para dentro do ecrã */
+    }
+    
+    /* Ajusta a lista de links para ficar vertical */
+    #main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #main-nav li {
+        margin: 20px 0; /* Espaçamento vertical entre os links */
+    }
+
+    /* Ajusta o header para ter o ícone à esquerda e o logo (se houvesse) ao centro/direita */
+    header .container {
+        justify-content: space-between; /* Afasta o hamburger do que estiver à direita */
+    }
+}
