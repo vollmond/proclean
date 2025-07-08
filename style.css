@@ -93,36 +93,36 @@ main {
 }
 
 #display-area {
-    background-color: #ffffff;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 2.5rem; /* Um pouco mais de padding */
+    background-color: #FFFFFF;
+    padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center;
-    gap: 2.5rem; /* Um pouco mais de espaço */
-    width: 100%; /* Garante que ocupa o espaço do .container */
-    max-width: 1100px; /* Define uma largura máxima para o bloco principal */
+    flex-direction: column; /* Força os itens a ficarem um em cima do outro */
+    align-items: center;   /* Centraliza os itens na horizontal */
+    gap: 1.5rem;           /* Espaço entre o logo e o texto */
+    width: 100%;
+    max-width: 900px;
 }
 
 #logo-display-container {
-    flex: 0 0 40%;
-    text-align: center;
+    width: 60%;
+    max-width: 200px; /* Impede que o logo fique demasiado grande em mobile */
 }
 
 #logo-display-container img {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
+    display: block; /* Boa prática para remover espaços extra de imagens */
 }
 
 #text-display-container {
-    flex: 1;
+    width: 100%;
+    text-align: center; /* Em mobile, o texto centrado fica mais agradável */
 }
 
 #text-display-container h2 {
     margin-bottom: 1rem;
-    /* NOVO: Usa a cor escura do logo para harmonia */
     color: #0D2B4E;
 }
 
